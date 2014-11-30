@@ -54,7 +54,7 @@ Plugin 'maksimr/vim-jsbeautify'
 Plugin 'kien/ctrlp.vim'
 call vundle#end()
 
-filetype plugin on
+filetype plugin indent on
 
 "============================================================
 autocmd VimEnter FileType javascript noremap <buffer> <C-f> :call JsBeautify()<cr>
