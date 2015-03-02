@@ -61,6 +61,7 @@ Plugin 'kshenoy/vim-signature'
 Plugin 'pangloss/vim-javascript'
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'kien/ctrlp.vim'
+Plugin 'joeytwiddle/sexy_scroller.vim'
 call vundle#end()
 
 filetype plugin indent on
