@@ -1,0 +1,18 @@
+{
+	"convert_tabspaces_on_save": true,
+	"detect_indentation": false,
+	"draw_white_space": "all",
+	"http_proxy": "proxy.sin.sap.corp:8080",
+	"https_proxy": "proxy.sin.sap.corp:8080",
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"rulers":
+	[
+		80
+	],
+	"tab_size": 4,
+	"translate_tabs_to_spaces": true,
+	"use_tab_stops": true
+}
