@@ -1,4 +1,4 @@
-set rtp+=~/vimfiles/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim
 
 set nocompatible
 filetype off
@@ -16,6 +16,15 @@ syntax enable
 " access system clipboard
 set clipboard=unnamed
 
+" search ignore case by default
+set ic
+
+" highlight search
+set hls
+
+" increment search
+set is
+
 " map leader to space
 let mapleader=" "
 
@@ -31,8 +40,7 @@ set shiftwidth=4
 set expandtab
 
 " plugins
-let path='~/vimfiles/bundle'
-call vundle#begin(path)
+call vundle#begin()
 "snipmate
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
@@ -94,3 +102,9 @@ map <leader>f :call JsBeautify()<cr>
 
 " nerdtree navigator toggle
 map  <leader>nd :NERDTreeToggle<cr>
+
+"cursor shape change in different mode in iterm2
+if $TERM_PROGRAM =~ "iTerm"
+    let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
+    let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
+endif
