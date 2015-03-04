@@ -1,4 +1,10 @@
-set rtp+=~/.vim/bundle/Vundle.vim
+"different setting between different os
+if has("win32") || has("win16")
+    set rtp+=~/vimfiles/bundle/vundle/
+    let path='~/vimfiles/bundle'
+else 
+    set rtp+=~/.vim/bundle/Vundle.vim
+endif
 
 set nocompatible
 filetype off
@@ -10,8 +16,8 @@ set laststatus=2
 " no swap file
 set noswapfile
 
-" syntax
-syntax enable
+" turn on wildmenu
+set wildmenu
 
 " access system clipboard
 set clipboard=unnamed
@@ -40,7 +46,12 @@ set shiftwidth=4
 set expandtab
 
 " plugins
-call vundle#begin()
+if has("win32") || has("win16")
+    call vundle#begin(path)
+else 
+    call vundle#begin()
+endif
+
 "snipmate
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
@@ -63,7 +74,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'joeytwiddle/sexy_scroller.vim'
 call vundle#end()
 
-filetype plugin on
+filetype plugin indent on
 
 "============================================================
 autocmd VimEnter FileType javascript noremap <buffer> <C-f> :call JsBeautify()<cr>
