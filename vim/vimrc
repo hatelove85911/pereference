@@ -1,6 +1,6 @@
 "different setting between different os
 if has("win32") || has("win16")
-    set rtp+=~/vimfiles/bundle/vundle/
+    set rtp+=~/vimfiles/bundle/Vundle.vim/
     let path='~/vimfiles/bundle'
 else 
     set rtp+=~/.vim/bundle/Vundle.vim
@@ -51,26 +51,19 @@ if has("win32") || has("win16")
 else 
     call vundle#begin()
 endif
-
-"snipmate
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
-
-Plugin 'ervandew/supertab'
-Plugin 'gmarik/vundle'
+"vundle
+Plugin 'gmarik/Vundle.vim'
+" color scheme
 Plugin 'tomasr/molokai'
+Plugin 'BusyBee'
+Plugin 'altercation/vim-colors-solarized'
+" status line
 Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
-Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'kshenoy/vim-signature'
-Plugin 'pangloss/vim-javascript'
-Plugin 'maksimr/vim-jsbeautify'
 Plugin 'kien/ctrlp.vim'
+" smooth scroll when pressing ctrl+d or ctrl u
 Plugin 'joeytwiddle/sexy_scroller.vim'
 call vundle#end()
 
@@ -88,32 +81,30 @@ let g:ctrlp_max_files=0
 let g:ctrlp_max_height=20
 
 " color scheme
-colorscheme molokai
-let g:molokai_original=1
-"colorscheme solarized
+colorscheme Busybee
 
 " nerdtree
 let g:nerdtree_tabs_open_on_gui_startup=0 
 
 "============================================================
 " Smart way to manage windows
-map <leader>h <c-w>h
-map <leader>j <c-w>j
-map <leader>k <c-w>k
-map <leader>l <c-w>l
-map <leader>c <c-w>c
-map <leader>H <c-w>H
-map <leader>J <c-w>J
-map <leader>K <c-w>K
-map <leader>L <c-w>L
-map <leader>o <c-w>o
-map <leader>w <c-w>
+nmap <leader>h <c-w>h
+nmap <leader>j <c-w>j
+nmap <leader>k <c-w>k
+nmap <leader>l <c-w>l
+nmap <leader>c <c-w>c
+nmap <leader>H <c-w>H
+nmap <leader>J <c-w>J
+nmap <leader>K <c-w>K
+nmap <leader>L <c-w>L
+nmap <leader>o <c-w>o
+nmap <leader>w <c-w>
 
 " js code format
-map <leader>f :call JsBeautify()<cr>
+nmap <leader>f :call JsBeautify()<cr>
 
 " nerdtree navigator toggle
-map  <leader>nd :NERDTreeToggle<cr>
+nmap  <leader>nd :NERDTreeToggle<cr>
 
 "cursor shape change in different mode in iterm2
 if $TERM_PROGRAM =~ "iTerm"
