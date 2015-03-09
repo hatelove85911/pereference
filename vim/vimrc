@@ -55,8 +55,11 @@ endif
 Plugin 'gmarik/Vundle.vim'
 " color scheme
 Plugin 'BusyBee'
+Plugin 'altercation/vim-colors-solarized'
 " status line
 Plugin 'bling/vim-airline'
+" show marks
+Plugin 'kshenoy/vim-signature'
 " multiple line edit
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-surround'
