@@ -7,8 +7,54 @@ else
 endif
 
 set nocompatible
-filetype off
-syntax enable
+filetype plugin indent on
+syntax on
+
+"==================================================
+" plugins
+if has("win32") || has("win16")
+    call vundle#begin(path)
+else 
+    call vundle#begin()
+endif
+"Vundle
+Plugin 'gmarik/Vundle.vim'
+
+"snippets
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
+
+" auto closing brackets
+Plugin 'jiangmiao/auto-pairs'
+
+" color scheme
+Plugin 'BusyBee'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'goatslacker/mango.vim'
+
+" status line
+Plugin 'bling/vim-airline'
+
+" show marks
+Plugin 'kshenoy/vim-signature'
+
+" multiple line edit
+Plugin 'terryma/vim-multiple-cursors'
+
+Plugin 'tpope/vim-surround'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-fugitive'
+
+" quick file finder 
+Plugin 'kien/ctrlp.vim'
+
+" smooth scroll when pressing ctrl+d or ctrl u
+Plugin 'joeytwiddle/sexy_scroller.vim'
+
+call vundle#end()
+"==================================================
 
 " always show status line
 set laststatus=2
@@ -35,8 +81,9 @@ set is
 let mapleader=" "
 
 " appearence 
-set background=dark
-set guifont=DejaVu_Sans_Mono:h10
+set background=light
+let g:solarized_termcolors=256
+colorscheme solarized
 set number
 
 " indention
@@ -45,32 +92,6 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
-" plugins
-if has("win32") || has("win16")
-    call vundle#begin(path)
-else 
-    call vundle#begin()
-endif
-"vundle
-Plugin 'gmarik/Vundle.vim'
-" color scheme
-Plugin 'BusyBee'
-Plugin 'altercation/vim-colors-solarized'
-" status line
-Plugin 'bling/vim-airline'
-" show marks
-Plugin 'kshenoy/vim-signature'
-" multiple line edit
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'tpope/vim-surround'
-Plugin 'scrooloose/nerdtree'
-Plugin 'tpope/vim-fugitive'
-Plugin 'kien/ctrlp.vim'
-" smooth scroll when pressing ctrl+d or ctrl u
-Plugin 'joeytwiddle/sexy_scroller.vim'
-call vundle#end()
-
-filetype plugin indent on
 
 "============================================================
 autocmd VimEnter FileType javascript noremap <buffer> <C-f> :call JsBeautify()<cr>
@@ -83,8 +104,6 @@ let g:ctrlp_working_path_mode=0
 let g:ctrlp_max_files=0
 let g:ctrlp_max_height=20
 
-" color scheme
-colorscheme Busybee
 
 " nerdtree
 let g:nerdtree_tabs_open_on_gui_startup=0 
