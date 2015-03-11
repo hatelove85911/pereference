@@ -60,6 +60,7 @@ Plugin 'joeytwiddle/sexy_scroller.vim'
 " for the autoformat to work for javascript, first need to install a global
 " node modue, npm install -g js-beautify
 Plugin 'Chiel92/vim-autoformat'
+Plugin 'pangloss/vim-javascript' 
 call vundle#end()
 "==================================================
 
@@ -89,11 +90,15 @@ let mapleader=" "
 
 " appearence 
 set background=light
+if &term =~ "^xterm"
+    let g:solarized_termcolors=256
+endif
 colorscheme solarized
 set number
 
 " indention
 set smartindent
+set autoindent
 set tabstop=4
 set shiftwidth=4
 set expandtab
@@ -125,6 +130,8 @@ nmap <leader>L <c-w>L
 nmap <leader>o <c-w>o
 nmap <leader>w <c-w>
 
+" quick insert semicolon at the end of the line
+nmap <leader>; A;<Esc>
 
 " nerdtree 
 nmap  <leader>nd :NERDTreeToggle<cr>
@@ -137,5 +144,4 @@ if $TERM_PROGRAM =~ "iTerm"
 elseif &term =~ "^xterm"
     let &t_SI .= "\<Esc>[5 q"
     let &t_EI .= "\<Esc>[2 q"
-    let g:solarized_termcolors=256
 endif
