@@ -44,7 +44,10 @@ Plugin 'kshenoy/vim-signature'
 Plugin 'terryma/vim-multiple-cursors'
 
 Plugin 'tpope/vim-surround'
+
+" directory tree
 Plugin 'scrooloose/nerdtree'
+
 Plugin 'tpope/vim-fugitive'
 
 " quick file finder 
@@ -53,6 +56,10 @@ Plugin 'kien/ctrlp.vim'
 " smooth scroll when pressing ctrl+d or ctrl u
 Plugin 'joeytwiddle/sexy_scroller.vim'
 
+" javascript related
+" for the autoformat to work for javascript, first need to install a global
+" node modue, npm install -g js-beautify
+Plugin 'Chiel92/vim-autoformat'
 call vundle#end()
 "==================================================
 
@@ -82,7 +89,6 @@ let mapleader=" "
 
 " appearence 
 set background=light
-let g:solarized_termcolors=256
 colorscheme solarized
 set number
 
@@ -92,28 +98,20 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
+" code format
+nmap <leader>f :Autoformat<cr>
 
-"============================================================
-autocmd VimEnter FileType javascript noremap <buffer> <C-f> :call JsBeautify()<cr>
-autocmd VimEnter FileType html noremap <buffer> <C-f>:call HtmlBeautify()<cr>
-autocmd VimEnter FileType css noremap <buffer> <C-f>:call CSSBeautify()<cr>
-
-"============================================================
 " ctrlp settings
 let g:ctrlp_working_path_mode=0  
 let g:ctrlp_max_files=0
 let g:ctrlp_max_height=20
 
 
-" nerdtree
-let g:nerdtree_tabs_open_on_gui_startup=0 
-
 " press enter to insert new lines
 nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
 
 
-"============================================================
 " Smart way to manage windows
 nmap <leader>h <c-w>h
 nmap <leader>j <c-w>j
@@ -127,11 +125,10 @@ nmap <leader>L <c-w>L
 nmap <leader>o <c-w>o
 nmap <leader>w <c-w>
 
-" js code format
-nmap <leader>f :call JsBeautify()<cr>
 
-" nerdtree navigator toggle
+" nerdtree 
 nmap  <leader>nd :NERDTreeToggle<cr>
+let g:nerdtree_tabs_open_on_gui_startup=0 
 
 "cursor shape change in different mode in iterm2
 if $TERM_PROGRAM =~ "iTerm"
@@ -140,4 +137,5 @@ if $TERM_PROGRAM =~ "iTerm"
 elseif &term =~ "^xterm"
     let &t_SI .= "\<Esc>[5 q"
     let &t_EI .= "\<Esc>[2 q"
+    let g:solarized_termcolors=256
 endif
