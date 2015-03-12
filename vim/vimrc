@@ -43,6 +43,7 @@ Plugin 'kshenoy/vim-signature'
 " multiple line edit
 Plugin 'terryma/vim-multiple-cursors'
 
+" operate on surroundings
 Plugin 'tpope/vim-surround'
 
 " directory tree
