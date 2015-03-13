@@ -49,6 +49,9 @@ Plugin 'tpope/vim-surround'
 " directory tree
 Plugin 'scrooloose/nerdtree'
 
+" tagbar
+Plugin 'majutsushi/tagbar'
+
 Plugin 'tpope/vim-fugitive'
 
 " quick file finder 
@@ -130,6 +133,9 @@ nmap <leader>K <c-w>K
 nmap <leader>L <c-w>L
 nmap <leader>o <c-w>o
 nmap <leader>w <c-w>
+
+" toggle tag bar
+nmap <leader>tb :TagbarToggle<CR>
 
 " quick insert semicolon at the end of the line
 nmap <leader>; A;<Esc>
