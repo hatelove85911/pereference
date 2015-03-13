@@ -30,23 +30,6 @@ return
 ; It explains how to perform common automation tasks such as sending
 ; keystrokes and mouse clicks.  It also explains more about hotkeys.
 
-
-;remap capslock to escape 
-$CapsLock Up::Send {Escape}
-
-;remap right window key to ctrl
+$CapsLock::Esc
 $RWin::Ctrl
-
-;remap double quick shift keystroke to capslock
-~<Shift::
-KeyWait, Shift, T0.2
-If Errorlevel
- Return
-KeyWait, Shift, D T0.4
-If Errorlevel
- Return
-SetCapsLockState, % (State:=!State) ? "On" : "Off"
-Return
-
-
-return
+$ESC::CapsLock
