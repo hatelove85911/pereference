@@ -74,10 +74,6 @@ set laststatus=2
 " no swap file
 set noswapfile
 
-" no backup file
-set nobackup
-set nowritebackup
-
 " turn on wildmenu
 set wildmenu
 
@@ -96,8 +92,8 @@ set is
 " map leader to space
 let mapleader=" "
 
-" set bin directory for ctags
-let g:tagbar_ctags_bin='~/junshen/ctags58/ctags.exe'
+"no line wrap
+set nowrap
 
 " appearence 
 set background=light
