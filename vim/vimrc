@@ -65,8 +65,15 @@ Plugin 'joeytwiddle/sexy_scroller.vim'
 " node modue, npm install -g js-beautify
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'pangloss/vim-javascript' 
+
+" mark down
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 call vundle#end()
 "==================================================
+
+"markdown file extension recognization
+au BufRead,BufNewFile *.md set filetype=markdown
 
 " always show status line
 set laststatus=2
