@@ -69,6 +69,7 @@ Plugin 'pangloss/vim-javascript'
 " mark down
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'suan/vim-instant-markdown'
 call vundle#end()
 "==================================================
 
