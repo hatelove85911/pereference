@@ -1,4 +1,4 @@
-pereference
+preference
 ===========
 
-my perefence
+my prefence
