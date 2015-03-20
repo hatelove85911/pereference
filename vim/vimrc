@@ -61,6 +61,9 @@ Plugin 'kien/ctrlp.vim'
 " smooth scroll when pressing ctrl+d or ctrl u
 Plugin 'joeytwiddle/sexy_scroller.vim'
 
+" syntax checker
+Plugin 'scrooloose/syntastic'
+
 " javascript related
 " for the autoformat to work for javascript, first need to install a global
 " node modue, npm install -g js-beautify
@@ -125,6 +128,17 @@ nmap <leader>f :Autoformat<cr>
 let g:ctrlp_working_path_mode=0  
 let g:ctrlp_max_files=0
 let g:ctrlp_max_height=20
+
+" syntastic configuration
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_javascript_checkers = ["eslint"]
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 
 " press enter to insert new lines
