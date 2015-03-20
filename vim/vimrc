@@ -51,6 +51,7 @@ Plugin 'scrooloose/nerdtree'
 
 " tagbar
 Plugin 'majutsushi/tagbar'
+Plugin 'marijnh/tern_for_vim'
 
 Plugin 'tpope/vim-fugitive'
 
@@ -69,7 +70,6 @@ Plugin 'pangloss/vim-javascript'
 " mark down
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
-Plugin 'suan/vim-instant-markdown'
 call vundle#end()
 "==================================================
 
