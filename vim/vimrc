@@ -80,6 +80,10 @@ Plugin 'plasticboy/vim-markdown'
 " note taking plugin
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-notes'
+
+" easy motion( move around super fast )
+Plugin 'Lokaltog/vim-easymotion'
+
 call vundle#end()
 "==================================================
 
@@ -137,7 +141,7 @@ let g:ctrlp_max_files=0
 let g:ctrlp_max_height=20
 
 " notes directory
-let g:notes_directories = ['~/junshen/gitrepo/notes]
+let g:notes_directories = ['~/junshen/gitrepo/notes']
 
 
 " syntastic configuration
