@@ -161,17 +161,16 @@ nmap <CR> o<Esc>
 
 
 " Smart way to manage windows
-nmap <leader>h <c-w>h
-nmap <leader>j <c-w>j
-nmap <leader>k <c-w>k
-nmap <leader>l <c-w>l
-nmap <leader>c <c-w>c
-nmap <leader>H <c-w>H
-nmap <leader>J <c-w>J
-nmap <leader>K <c-w>K
-nmap <leader>L <c-w>L
-nmap <leader>o <c-w>o
-nmap <leader>w <c-w>
+"nmap <leader>h <c-w>h
+"nmap <leader>j <c-w>j
+"nmap <leader>k <c-w>k
+"nmap <leader>l <c-w>l
+"nmap <leader>c <c-w>c
+"nmap <leader>H <c-w>H
+"nmap <leader>J <c-w>J
+"nmap <leader>K <c-w>K
+"nmap <leader>L <c-w>L
+"nmap <leader>o <c-w>o
 
 " toggle tag bar
 nmap <leader>tb :TagbarToggle<CR>
