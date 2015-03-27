@@ -70,9 +70,16 @@ Plugin 'scrooloose/syntastic'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'pangloss/vim-javascript' 
 
+" distinguish json from javascript
+"Plugin 'elzr/vim-json'
+
 " mark down
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+
+" note taking plugin
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-notes'
 call vundle#end()
 "==================================================
 
@@ -129,17 +136,20 @@ let g:ctrlp_working_path_mode=0
 let g:ctrlp_max_files=0
 let g:ctrlp_max_height=20
 
+" notes directory
+let g:notes_directories = ['~/junshen/gitrepo/notes]
+
+
 " syntastic configuration
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
 
-let g:syntastic_javascript_checkers = ["eslint"]
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
+"let g:syntastic_javascript_checkers = ["eslint"]
+"et g:syntastic_always_populate_loc_list = 1
+"et g:syntastic_auto_loc_list = 1
+"et g:syntastic_check_on_open = 1
+"et g:syntastic_check_on_wq = 0
 
 " press enter to insert new lines
 nmap <S-Enter> O<Esc>
