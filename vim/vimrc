@@ -143,6 +143,13 @@ let g:ctrlp_max_height=20
 " notes directory
 let g:notes_directories = ['~/junshen/gitrepo/notes']
 
+" tagbar ctag configuration
+if has("win32") || has("win16") || has("win32unix")
+    let g:tagbar_type_javascript = {
+                \'ctagsargs' : '-f'
+                \}
+else 
+endif
 
 " syntastic configuration
 "set statusline+=%#warningmsg#
@@ -159,18 +166,8 @@ let g:notes_directories = ['~/junshen/gitrepo/notes']
 nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
 
-
 " Smart way to manage windows
-"nmap <leader>h <c-w>h
-"nmap <leader>j <c-w>j
-"nmap <leader>k <c-w>k
-"nmap <leader>l <c-w>l
-"nmap <leader>c <c-w>c
-"nmap <leader>H <c-w>H
-"nmap <leader>J <c-w>J
-"nmap <leader>K <c-w>K
-"nmap <leader>L <c-w>L
-"nmap <leader>o <c-w>o
+nmap <leader>w <c-w>
 
 " toggle tag bar
 nmap <leader>tb :TagbarToggle<CR>
@@ -178,9 +175,14 @@ nmap <leader>tb :TagbarToggle<CR>
 " quick insert semicolon at the end of the line
 nmap <leader>; A;<Esc>
 
+" for not to lose the yanked text after pasting over selection
+xnoremap p pgvy
+
 " nerdtree 
 nmap  <leader>nd :NERDTreeToggle<cr>
 let g:nerdtree_tabs_open_on_gui_startup=0 
+
+
 
 "cursor shape change in different mode in iterm2
 if $TERM_PROGRAM =~ "iTerm"
