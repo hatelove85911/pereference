@@ -10,6 +10,9 @@ set nocompatible
 filetype plugin indent on
 syntax on
 
+" use git protocol by default other than https
+"let g:vundle_default_git_proto = 'git'
+
 "==================================================
 " plugins
 if has("win32") || has("win16")
@@ -84,6 +87,10 @@ Plugin 'xolox/vim-notes'
 " easy motion( move around super fast )
 Plugin 'Lokaltog/vim-easymotion'
 
+" local vimrc solution
+Plugin 'MarcWeber/vim-addon-local-vimrc'
+
+
 call vundle#end()
 "==================================================
 
@@ -124,11 +131,15 @@ if &term =~ "^xterm"
 endif
 colorscheme solarized
 set number
+set showcmd
+set cursorline
+
 
 " indention
 set smartindent
 set autoindent
 set tabstop=4
+set softtabstop=4
 set shiftwidth=4
 set expandtab
 
@@ -144,26 +155,21 @@ let g:ctrlp_max_height=20
 let g:notes_directories = ['~/junshen/gitrepo/notes']
 
 " tagbar ctag configuration
-if has("win32") || has("win16") || has("win32unix")
-    let g:tagbar_type_javascript = {
-                \'ctagsargs' : '-f'
-                \}
-else 
-endif
+
+
 
 " syntastic configuration
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
-"let g:syntastic_javascript_checkers = ["eslint"]
-"et g:syntastic_always_populate_loc_list = 1
-"et g:syntastic_auto_loc_list = 1
-"et g:syntastic_check_on_open = 1
-"et g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ["eslint"]
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " press enter to insert new lines
-nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
 
 " Smart way to manage windows
