@@ -74,7 +74,7 @@ Plugin 'Chiel92/vim-autoformat'
 Plugin 'pangloss/vim-javascript' 
 
 " distinguish json from javascript
-"Plugin 'elzr/vim-json'
+Plugin 'elzr/vim-json'
 
 " mark down
 Plugin 'godlygeek/tabular'
@@ -96,6 +96,10 @@ call vundle#end()
 
 "markdown file extension recognization
 au BufRead,BufNewFile *.md set filetype=markdown
+
+" allow backspace to delete auto indention , line breaks, and the start of
+" insertion
+set backspace=indent,eol,start
 
 " always show status line
 set laststatus=2
