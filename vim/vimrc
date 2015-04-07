@@ -199,6 +199,9 @@ let g:multi_cursor_exit_from_insert_mode = 0
 hi link EasyMotionTarget ErrorMsg
 hi link EasyMotionShade  Comment
 
+hi link EasyMotionTarget2First ErrorMsg
+hi link EasyMotionTarget2Second ErrorMsg
+
 "cursor shape change in different mode in iterm2
 if $TERM_PROGRAM =~ "iTerm"
     let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
