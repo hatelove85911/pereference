@@ -192,7 +192,12 @@ xnoremap p pgvy
 nmap  <leader>nd :NERDTreeToggle<cr>
 let g:nerdtree_tabs_open_on_gui_startup=0 
 
+" multi-cursor configuration
+let g:multi_cursor_exit_from_insert_mode = 0
 
+" easy motion highlighting color
+hi link EasyMotionTarget ErrorMsg
+hi link EasyMotionShade  Comment
 
 "cursor shape change in different mode in iterm2
 if $TERM_PROGRAM =~ "iTerm"
