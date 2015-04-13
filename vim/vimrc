@@ -79,6 +79,7 @@ Plugin 'elzr/vim-json'
 " mark down
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'shime/vim-livedown'
 
 " note taking plugin
 Plugin 'xolox/vim-misc'
@@ -89,6 +90,14 @@ Plugin 'Lokaltog/vim-easymotion'
 
 " local vimrc solution
 Plugin 'MarcWeber/vim-addon-local-vimrc'
+
+" for navigation between items in quick fix or location list easier
+Plugin 'tpope/vim-unimpaired'
+
+
+" nodejs plugin
+Plugin 'moll/vim-node'
+Plugin 'sidorares/node-vim-debugger'
 
 
 call vundle#end()
@@ -138,7 +147,6 @@ set number
 set showcmd
 set cursorline
 
-
 " indention
 set smartindent
 set autoindent
@@ -158,10 +166,6 @@ let g:ctrlp_max_height=20
 " notes directory
 let g:notes_directories = ['~/junshen/gitrepo/notes']
 
-" tagbar ctag configuration
-
-
-
 " syntastic configuration
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -173,11 +177,6 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-" press enter to insert new lines
-nmap <CR> o<Esc>
-
-" Smart way to manage windows
-nmap <leader>w <c-w>
 
 " toggle tag bar
 nmap <leader>tb :TagbarToggle<CR>
