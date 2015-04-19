@@ -1,0 +1,4 @@
+// scroll 
+zz: scroll the line cursor on in the middle of the screen, leave cursor remain at the same position
+zt: scroll the line cursor on in the top of the screen, leave cursor remain at the same position
+zb: scroll the line cursor on in the bottom of the screen, leave cursor remain at the same position
