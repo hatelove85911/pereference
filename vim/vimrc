@@ -79,7 +79,7 @@ Plugin 'elzr/vim-json'
 " mark down
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
-Plugin 'shime/vim-livedown'
+Plugin 'suan/vim-instant-markdown'
 
 " note taking plugin
 Plugin 'xolox/vim-misc'
@@ -162,6 +162,13 @@ nmap <leader>f :Autoformat<cr>
 let g:ctrlp_working_path_mode=0  
 let g:ctrlp_max_files=0
 let g:ctrlp_max_height=20
+let g:ctrlp_show_hidden = 1
+let g:ctrlp_custom_ignore = {
+            \ 'dir':  '\v[\/](\.(git|hg|svn)|node_modules)$',
+            \ 'file': '\v\.(exe|so|dll)$',
+            \ 'link': 'some_bad_symbolic_links',
+            \ }
+
 
 " notes directory
 let g:notes_directories = ['~/junshen/gitrepo/notes']
@@ -173,8 +180,8 @@ set statusline+=%*
 
 let g:syntastic_javascript_checkers = ["eslint"]
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_auto_loc_list = 2
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
 
@@ -189,7 +196,7 @@ xnoremap p pgvy
 
 " nerdtree 
 nmap  <leader>nd :NERDTreeToggle<cr>
-let g:nerdtree_tabs_open_on_gui_startup=0 
+let g:NERDTreeShowHidden=1
 
 " multi-cursor configuration
 let g:multi_cursor_exit_from_insert_mode = 0
@@ -216,26 +223,26 @@ endif
 " script to output shell command output to a new buffer in a separate window 
 command! -complete=shellcmd -nargs=+ Shell call s:RunShellCommand(<q-args>)
 function! s:RunShellCommand(cmdline)
-  let isfirst = 1
-  let words = []
-  for word in split(a:cmdline)
-    if isfirst
-      let isfirst = 0  " don't change first word (shell command)
-    else
-      if word[0] =~ '\v[%#<]'
-        let word = expand(word)
-      endif
-      let word = shellescape(word, 1)
-    endif
-    call add(words, word)
-  endfor
-  let expanded_cmdline = join(words)
-  botright new
-  setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile nowrap
-  call setline(1, 'You entered:  ' . a:cmdline)
-  call setline(2, 'Expanded to:  ' . expanded_cmdline)
-  call append(line('$'), substitute(getline(2), '.', '=', 'g'))
-  silent execute '$read !'. expanded_cmdline
-  1
+    let isfirst = 1
+    let words = []
+    for word in split(a:cmdline)
+        if isfirst
+            let isfirst = 0  " don't change first word (shell command)
+        else
+            if word[0] =~ '\v[%#<]'
+                let word = expand(word)
+            endif
+            let word = shellescape(word, 1)
+        endif
+        call add(words, word)
+    endfor
+    let expanded_cmdline = join(words)
+    botright new
+    setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile nowrap
+    call setline(1, 'You entered:  ' . a:cmdline)
+    call setline(2, 'Expanded to:  ' . expanded_cmdline)
+    call append(line('$'), substitute(getline(2), '.', '=', 'g'))
+    silent execute '$read !'. expanded_cmdline
+    1
 endfunction
 command! -complete=file -nargs=* Node call s:RunShellCommand('node '.<q-args>)
