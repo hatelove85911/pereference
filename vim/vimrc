@@ -108,7 +108,7 @@ au BufRead,BufNewFile *.md set filetype=markdown
 
 " allow backspace to delete auto indention , line breaks, and the start of
 " insertion
-set backspace=indent,eol,start
+set backspace=indent,start
 
 " always show status line
 set laststatus=2
