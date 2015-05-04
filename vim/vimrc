@@ -103,6 +103,8 @@ Plugin 'sidorares/node-vim-debugger'
 " comment out code
 Plugin 'tpope/vim-commentary'
 
+" xml
+Plugin 'othree/xml.vim'
 call vundle#end()
 "==================================================
 
@@ -160,6 +162,8 @@ set expandtab
 
 " code format
 nmap <leader>f :Autoformat<cr>
+let g:formatprg_xml = 'xmllint'
+" let g:formatprg_args_xml = ''
 
 " ctrlp settings
 let g:ctrlp_working_path_mode=0  
