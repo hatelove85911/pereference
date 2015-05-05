@@ -162,8 +162,7 @@ set expandtab
 
 " code format
 nmap <leader>f :Autoformat<cr>
-let g:formatprg_xml = 'xmllint'
-" let g:formatprg_args_xml = ''
+autocmd FileType xml let g:formatprg_args_expr_xml .= '." --indent-attributes 1"'
 
 " ctrlp settings
 let g:ctrlp_working_path_mode=0  
@@ -177,12 +176,12 @@ let g:ctrlp_custom_ignore = {
             \ }
 
 let g:ctrlp_user_command = {
-  \ 'types': {
-    \ 1: ['.git', 'cd %s && git ls-files --cached --exclude-standard --others'],
-    \ 2: ['.hg', 'hg --cwd %s locate -I .'],
-    \ },
-  \ 'fallback': 'find %s -type f'
-  \ }
+            \ 'types': {
+            \ 1: ['.git', 'cd %s && git ls-files --cached --exclude-standard --others'],
+            \ 2: ['.hg', 'hg --cwd %s locate -I .'],
+            \ },
+            \ 'fallback': 'find %s -type f'
+            \ }
 
 " notes directory
 let g:notes_directories = ['~/junshen/gitrepo/notes']
