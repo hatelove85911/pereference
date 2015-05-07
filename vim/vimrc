@@ -105,6 +105,9 @@ Plugin 'tpope/vim-commentary'
 
 " xml
 Plugin 'othree/xml.vim'
+
+" window manager
+Plugin 'spolu/dwm.vim'
 call vundle#end()
 "==================================================
 
@@ -163,6 +166,7 @@ set expandtab
 " code format
 nmap <leader>f :Autoformat<cr>
 autocmd FileType xml let g:formatprg_args_expr_xml .= '." --indent-attributes 1"'
+autocmd FileType html let g:formatprg_args_expr_html .= '." -A force"'
 
 " ctrlp settings
 let g:ctrlp_working_path_mode=0  
