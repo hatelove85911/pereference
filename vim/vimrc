@@ -170,6 +170,10 @@ au FileType xml let g:formatprg_args_expr_xml .= '." --indent-attributes 1"'
 au FileType html let g:formatprg_args_expr_html .= '." -A force"'
 
 " ctrlp settings
+let g:ctrlp_map = ''
+nmap <leader>p :CtrlP<CR>
+nmap <leader>b :CtrlPBuffer<CR>
+
 let g:ctrlp_working_path_mode=0  
 let g:ctrlp_max_files=0
 let g:ctrlp_max_height=20
