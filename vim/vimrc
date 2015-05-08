@@ -222,23 +222,23 @@ let g:multi_cursor_exit_from_insert_mode = 0
 " use node to execute js code directly and output to shell directly
 nmap <leader>node :Node %<cr>
 
-" easy motion highlighting color
+" easy motion 
+nmap <leader><leader>w  <Plug>(easymotion-bd-w)
+nmap <leader><leader>j  <Plug>(easymotion-bd-jk)
+nmap <leader><leader>l  <Plug>(easymotion-lineanywhere)
+nmap <leader><leader>s  <Plug>(easymotion-sn)
 hi link EasyMotionTarget ErrorMsg
 hi link EasyMotionShade  Comment
-
 hi link EasyMotionTarget2First ErrorMsg
 hi link EasyMotionTarget2Second ErrorMsg
 
-
 " window management using goldenview
 let g:goldenview__enable_default_mapping = 0
-:DisableGoldenViewAutoResize
-
+au vimenter * :DisableGoldenViewAutoResize
 nmap <silent> <c-n>  <Plug>GoldenViewSplit
 nmap <silent> <c-j>  <Plug>GoldenViewNext
 nmap <silent> <c-k>  <Plug>GoldenViewPrevious
 nmap <silent> <c-m>  <Plug>GoldenViewSwitchToggle
-
 
 "cursor shape change in different mode in iterm2
 if $TERM_PROGRAM =~ "iTerm"
