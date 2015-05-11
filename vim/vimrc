@@ -39,7 +39,6 @@ Plugin 'goatslacker/mango.vim'
 
 " status line
 Plugin 'bling/vim-airline'
-Plugin 'powerline/fonts'
 
 " show marks
 Plugin 'kshenoy/vim-signature'
@@ -198,9 +197,6 @@ let g:ctrlp_user_command = {
 
 " airline setting
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline#extensions#tabline#left_sep = '>'
-let g:airline#extensions#tabline#left_alt_sep = '>'
 
 " notes directory
 let g:notes_directories = ['~/junshen/gitrepo/notes']
