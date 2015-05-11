@@ -39,6 +39,7 @@ Plugin 'goatslacker/mango.vim'
 
 " status line
 Plugin 'bling/vim-airline'
+Plugin 'powerline/fonts'
 
 " show marks
 Plugin 'kshenoy/vim-signature'
@@ -124,6 +125,9 @@ set laststatus=2
 " no swap file
 set noswapfile
 
+" set hidden allowed
+set hidden
+
 " turn on wildmenu
 set wildmenu
 
@@ -190,6 +194,13 @@ let g:ctrlp_user_command = {
             \ },
             \ 'fallback': 'find %s -type f'
             \ }
+
+
+" airline setting
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#left_sep = '>'
+let g:airline#extensions#tabline#left_alt_sep = '>'
 
 " notes directory
 let g:notes_directories = ['~/junshen/gitrepo/notes']
