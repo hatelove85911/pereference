@@ -197,15 +197,13 @@ let g:ctrlp_user_command = {
 
 " airline setting
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme = 'powerlineish'
 
 " notes directory
 let g:notes_directories = ['~/junshen/gitrepo/notes']
 
 " syntastic configuration
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
+let g:syntastic_mode_map = { 'mode': 'passive' }
 let g:syntastic_javascript_checkers = ["eslint"]
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 2
