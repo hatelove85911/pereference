@@ -80,7 +80,7 @@ Plugin 'elzr/vim-json'
 " mark down
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
-Plugin 'suan/vim-instant-markdown'
+Plugin 'shime/vim-livedown'
 
 " note taking plugin
 Plugin 'xolox/vim-misc'
