@@ -242,14 +242,15 @@ hi link EasyMotionTarget2Second ErrorMsg
 
 " window management settings
 let g:goldenview__enable_default_mapping = 0
+
 au vimenter * :DisableGoldenViewAutoResize
 nmap _ <c-w><
 nmap + <c-w>>
 nmap ( <c-w>-
 nmap ) <c-w>+
 nmap <silent> <c-n>  <Plug>GoldenViewSplit
-nmap <silent> <c-j>  <Plug>GoldenViewNext
-nmap <silent> <c-k>  <Plug>GoldenViewPrevious
+nmap <silent> ]w  <Plug>GoldenViewNext
+nmap <silent> [w  <Plug>GoldenViewPrevious
 nmap <silent> <c-m>  <Plug>GoldenViewSwitchToggle
 
 " livedown(markdown preview)
