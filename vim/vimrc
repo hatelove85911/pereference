@@ -109,6 +109,8 @@ Plugin 'thinca/vim-textobj-function-javascript'
 " window manager
 Plugin 'zhaocai/GoldenView.Vim'
 
+" for cursor shape change in difference terminal
+Plugin 'jszakmeister/vim-togglecursor'
 call vundle#end()
 
 "markdown file extension recognization
@@ -131,7 +133,7 @@ set hidden
 set wildmenu
 
 " access system clipboard
-set clipboard=unnamed
+set clipboard=unnamedplus
 
 " search ignore case by default
 set ic
@@ -263,7 +265,7 @@ nmap <leader>lk :LivedownKill<CR>
 
 "cursor shape change in different mode in different terminals
 " Use a blinking upright bar cursor in Insert mode, a blinking block in normal
-"if &term == "^xterm" || &term == "^screen"
+"if &term =~ "^xterm" || &term =~ "^screen"
 "    let &t_SI = "\e[5 q"
 "    let &t_EI = "\e[2 q"
 "endif
