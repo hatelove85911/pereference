@@ -133,7 +133,7 @@ set hidden
 set wildmenu
 
 " access system clipboard
-set clipboard=unnamedplus
+set clipboard=unnamed
 
 " search ignore case by default
 set ic
@@ -174,7 +174,8 @@ set expandtab
 " code format
 nmap <leader>f :Autoformat<cr>
 au FileType xml let g:formatdef_tidy_xml .= '." --indent-attributes 1"'
-" au FileType html let g:formatdef_htmlbeautify .= '." -A force"'
+au FileType xhtml let g:formatdef_tidy_xhtml .= '." --indent-attributes 1"'
+au FileType html let g:formatdef_htmlbeautify .= '." -A force"'
 
 " ctrlp settings
 let g:ctrlp_map = ''
