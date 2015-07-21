@@ -1,5 +1,27 @@
+function! MyDetectOS()
+    if has("win32") || has("win16") || has("win64")
+        return "windows"
+    elseif has("unix")
+        let l:uname = substitute(system("uname"), '\n', '', '')
+        if l:uname ==? "linux"
+            return "linux"
+        else
+            return "unix"
+        endif
+    elseif has("mac") || has("macunix")
+        return "mac"
+    elseif has("win32unix")
+        return "cygwin"
+    endif
+endfunction
+
+function! MyDetectTerminal()
+
+endfunction
+
+
 "different setting between different os
-if has("win32") || has("win16")
+if MyDetectOS() ==? "windows"
     set rtp+=~/vimfiles/bundle/Vundle.vim/
     let path='~/vimfiles/bundle'
 else 
@@ -111,6 +133,10 @@ Plugin 'zhaocai/GoldenView.Vim'
 
 " for cursor shape change in difference terminal
 Plugin 'jszakmeister/vim-togglecursor'
+
+" relative number
+Plugin 'myusuf3/numbers.vim'
+
 call vundle#end()
 
 "markdown file extension recognization
@@ -133,7 +159,11 @@ set hidden
 set wildmenu
 
 " access system clipboard
-set clipboard=unnamed
+if MyDetectOS() ==? "linux" 
+    set clipboard=unnamedplus
+else
+    set clipboard=unnamed
+endif
 
 " search ignore case by default
 set ic
@@ -151,13 +181,24 @@ let mapleader=" "
 set nowrap
 
 " appearence 
-set background=light
-let g:solarized_termcolors=256
+" if &term =~ '256color'
+"     " disable Background Color Erase (BCE) so that color schemes
+"     " render properly when inside 256-color tmux and GNU screen.
+"     " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
+"     set t_ut=
+"     set background=light
+"     let g:solarized_termcolors=256
+"     set t_Co=256
+" endif
+
+
+" disable Background Color Erase (BCE) so that color schemes
+" render properly when inside 256-color tmux and GNU screen.
+" see also http://snk.tuxfamily.org/log/vim-256color-bce.html
+set t_ut=
 set t_Co=256
-"if &term =~ "xterm-256"
-"    let g:solarized_termcolors=256
-"    set t_Co=256
-"endif
+let g:solarized_termcolors=256
+set background=light
 colorscheme solarized
 set number
 set showcmd
