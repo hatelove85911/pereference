@@ -1,6 +1,10 @@
 function! MyDetectOS()
     if has("win32") || has("win16") || has("win64")
         return "windows"
+    elseif has("mac") || has("macunix")
+        return "mac"
+    elseif has("win32unix")
+        return "cygwin"
     elseif has("unix")
         let l:uname = substitute(system("uname"), '\n', '', '')
         if l:uname ==? "linux"
@@ -8,10 +12,6 @@ function! MyDetectOS()
         else
             return "unix"
         endif
-    elseif has("mac") || has("macunix")
-        return "mac"
-    elseif has("win32unix")
-        return "cygwin"
     endif
 endfunction
 
