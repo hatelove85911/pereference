@@ -97,10 +97,6 @@ Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'shime/vim-livedown'
 
-" note taking plugin
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-notes'
-
 " easy motion( move around super fast )
 Plugin 'Lokaltog/vim-easymotion'
 
@@ -246,9 +242,6 @@ let g:ctrlp_user_command = {
 " airline setting
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme = 'powerlineish'
-
-" notes directory
-let g:notes_directories = ['~/junshen/gitrepo/notes']
 
 " syntastic configuration
 let g:syntastic_mode_map = { 'mode': 'passive' }
