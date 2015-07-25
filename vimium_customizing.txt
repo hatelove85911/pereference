@@ -1,0 +1,17 @@
+
+// key mapping
+map o Vomnibar.activateInNewTab
+map O Vomnibar.activate
+map b Vomnibar.activateBookmarksInNewTab
+map B Vomnibar.activateBookmarks
+map D scrollFullPageDown
+map U scrollFullPageUp
+map co closeOtherTabs
+map cl closeTabsOnRight
+map ch closeTabsOnLeft
+
+// Custom search engines
+w: http://www.wikipedia.org/w/index.php?title=Special:Search&search=%s wikipedia
+b: https://www.baidu.com/s?wd=%s
+j: http://www.iciba.com/%s
+
