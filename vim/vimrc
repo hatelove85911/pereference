@@ -127,6 +127,13 @@ Plugin 'jszakmeister/vim-togglecursor'
 " relative number
 Plugin 'myusuf3/numbers.vim'
 
+
+" the ultimate code completion plugin
+Plugin 'Valloric/YouCompleteMe'
+
+" xml 
+Plugin 'sukima/xmledit'
+
 call vundle#end()
 
 " use git protocol by default other than https
