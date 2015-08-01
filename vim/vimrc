@@ -275,6 +275,18 @@ let g:NERDTreeShowHidden=1
 " multi-cursor configuration
 let g:multi_cursor_exit_from_insert_mode = 0
 
+
+" ultisnips configuration
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
+" YCM configuration
+let g:ycm_filetype_blacklist = {}
+let g:ycm_key_list_select_completion=[]  " don't use tab to select next completion
+let g:ycm_key_list_previous_completion=[] " don't use tab to select next completion
+
+
 " use node to execute js code directly and output to shell directly
 nmap <leader>node :Node %<cr>
 
@@ -305,6 +317,8 @@ nmap <silent> <c-m>  <Plug>GoldenViewSwitchToggle
 nmap <leader>ll :LivedownPreview<CR>
 nmap <leader>lk :LivedownKill<CR>
 
+" upper case Y to copy from cursor to line end
+nnoremap Y v$hy
 
 " script to output shell command output to a new buffer in a separate window 
 command! -complete=shellcmd -nargs=+ Shell call s:RunShellCommand(<q-args>)
