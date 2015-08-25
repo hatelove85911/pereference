@@ -30,6 +30,17 @@ return
 ; It explains how to perform common automation tasks such as sending
 ; keystrokes and mouse clicks.  It also explains more about hotkeys.
 
-$CapsLock::Esc
-$RWin::Ctrl
-$ESC::CapsLock
+; map left contrl to capslock
+$LCtrl::CapsLock
+
+; map capslock to left control and escape
+SetCapsLockState, alwaysoff
+Capslock::
+Send {LControl Down}
+KeyWait, CapsLock
+Send {LControl Up}
+if ( A_PriorKey = "CapsLock" )
+{
+	Send {Esc}
+}
+return
