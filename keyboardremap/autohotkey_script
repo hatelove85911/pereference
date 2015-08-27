@@ -31,9 +31,9 @@ return
 ; keystrokes and mouse clicks.  It also explains more about hotkeys.
 
 ; map left contrl to capslock
-$LCtrl::CapsLock
+$ESC::CapsLock
 
-; map capslock to left control and escape
+
 SetCapsLockState, alwaysoff
 Capslock::
 Send {LControl Down}
