@@ -90,9 +90,6 @@ Plugin 'Chiel92/vim-autoformat'
 Plugin 'pangloss/vim-javascript' 
 Plugin 'bigfish/vim-js-context-coloring'
 
-" for html and css hi-speed coding
-Plugin 'mattn/emmet-vim'
-
 " distinguish json from javascript
 Plugin 'elzr/vim-json'
 
