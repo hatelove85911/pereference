@@ -152,6 +152,11 @@ let mapleader=" "
 "markdown file extension recognization
 au BufRead,BufNewFile *.md set filetype=markdown
 
+" when :vsp window will be opened at the right side instead of left
+set splitright
+" when :sp window will be opened at the below side instead of above
+set splitbelow
+
 " allow backspace to delete auto indention , line breaks, and the start of insertion
 set backspace=indent,start
 
