@@ -1,3 +1,6 @@
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" my functions 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! MyDetectOS()
     if has("win32") || has("win16") || has("win64")
         return "windows"
@@ -30,6 +33,9 @@ endif
 
 
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" plugins 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 filetype off
 "==================================================
 " plugins
@@ -149,61 +155,32 @@ syntax on
 " map leader to space
 let mapleader=" "
 
-"markdown file extension recognization
-au BufRead,BufNewFile *.md set filetype=markdown
-
-" when :vsp window will be opened at the right side instead of left
-set splitright
-" when :sp window will be opened at the below side instead of above
-set splitbelow
-
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" general
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " allow backspace to delete auto indention , line breaks, and the start of insertion
 set backspace=indent,start
-
 " always show status line
 set laststatus=2
-
 " no swap file
 set noswapfile
-
 " set hidden allowed
 set hidden
-
 " turn on wildmenu
 set wildmenu
-
 " access system clipboard
 if MyDetectOS() ==? "linux" 
     set clipboard=unnamedplus
 else
     set clipboard=unnamed
 endif
-
 " search ignore case by default
 set ic
-
 " highlight search
 set hls
-
 " increment search
 set is
-
-
-"no line wrap
 set nowrap
-
-" appearence 
-" if &term =~ '256color'
-"     " disable Background Color Erase (BCE) so that color schemes
-"     " render properly when inside 256-color tmux and GNU screen.
-"     " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
-"     set t_ut=
-"     set background=light
-"     let g:solarized_termcolors=256
-"     set t_Co=256
-" endif
-
-
 " disable Background Color Erase (BCE) so that color schemes
 " render properly when inside 256-color tmux and GNU screen.
 " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
@@ -224,12 +201,67 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 
-" code format
+" open help in split vertical window
+cabbrev h vert h
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" autocommand
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"markdown file extension recognization
+au BufRead,BufNewFile *.md set filetype=markdown
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" window management
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" window management settings
+let g:goldenview__enable_default_mapping = 0
+au vimenter * :DisableGoldenViewAutoResize
+nnoremap _ <c-w><
+nnoremap + <c-w>>
+nnoremap ( <c-w>-
+nnoremap ) <c-w>+
+nmap <silent> <c-n>  <Plug>GoldenViewSplit
+nmap <silent> ]w  <Plug>GoldenViewNext
+nmap <silent> [w  <Plug>GoldenViewPrevious
+nmap <silent> <c-m>  <Plug>GoldenViewSwitchToggle
+nnoremap <leader>q :q<CR>
+nnoremap <leader>qq :qa<CR>
+nnoremap <leader>w :w<CR>
+nnoremap <leader>ww :wa<CR>
+nnoremap <leader>xa :xa<CR>
+
+"maximize and restore window
+nnoremap <leader>o :call MaximizeToggle()<CR>
+function! MaximizeToggle()
+    if exists("s:maximize_session")
+        exec "source " . s:maximize_session
+        call delete(s:maximize_session)
+        unlet s:maximize_session
+        let &hidden=s:maximize_hidden_save
+        unlet s:maximize_hidden_save
+    else
+        let s:maximize_hidden_save = &hidden
+        let s:maximize_session = tempname()
+        set hidden
+        exec "mksession! " . s:maximize_session
+        only
+    endif
+endfunction
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" code formatter
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <leader>f :Autoformat<cr>
 au FileType xml let g:formatdef_tidy_xml .= '." --indent-attributes 1"'
 au FileType xhtml let g:formatdef_tidy_xhtml .= '." --indent-attributes 1"'
 au FileType html let g:formatdef_htmlbeautify .= '." -A force"'
 
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ctrlp
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ctrlp settings
 let g:ctrlp_map = ''
 nmap <leader>p :CtrlP<CR>
@@ -254,10 +286,16 @@ let g:ctrlp_user_command = {
             \ }
 
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" airline setting
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " airline setting
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme = 'powerlineish'
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" syntastic
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " syntastic configuration
 let g:syntastic_mode_map = { 'mode': 'passive' }
 let g:syntastic_javascript_checkers = ["eslint"]
@@ -266,38 +304,25 @@ let g:syntastic_auto_loc_list = 2
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
-
-" toggle tag bar
-nmap <leader>tb :TagbarToggle<CR>
-
-" quick insert semicolon at the end of the line
-nmap <leader>; A;<Esc>
-
-" for not to lose the yanked text after pasting over selection
-xnoremap p pgvy
-
-" nerdtree 
-nmap  <leader>nd :NERDTreeToggle<cr>
-let g:NERDTreeShowHidden=1
-
-" multi-cursor configuration
-let g:multi_cursor_exit_from_insert_mode = 0
-
-
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" utltsnips
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ultisnips configuration
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" YCM 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " YCM configuration
 let g:ycm_filetype_blacklist = {}
 let g:ycm_key_list_select_completion=[]  " don't use tab to select next completion
 let g:ycm_key_list_previous_completion=[] " don't use tab to select next completion
 
-
-" use node to execute js code directly and output to shell directly
-nmap <leader>node :Node %<cr>
-
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" easy motion
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " easy motion 
 nmap <leader><leader>w  <Plug>(easymotion-bd-w)
 nmap <leader><leader>j  <Plug>(easymotion-bd-jk)
@@ -308,22 +333,31 @@ hi link EasyMotionShade  Comment
 hi link EasyMotionTarget2First ErrorMsg
 hi link EasyMotionTarget2Second ErrorMsg
 
-" window management settings
-let g:goldenview__enable_default_mapping = 0
-
-au vimenter * :DisableGoldenViewAutoResize
-nmap _ <c-w><
-nmap + <c-w>>
-nmap ( <c-w>-
-nmap ) <c-w>+
-nmap <silent> <c-n>  <Plug>GoldenViewSplit
-nmap <silent> ]w  <Plug>GoldenViewNext
-nmap <silent> [w  <Plug>GoldenViewPrevious
-nmap <silent> <c-m>  <Plug>GoldenViewSwitchToggle
-
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" livedown
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " livedown(markdown preview)
 nmap <leader>ll :LivedownPreview<CR>
 nmap <leader>lk :LivedownKill<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" some shortcut mapping
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" toggle tag bar
+nnoremap <leader>tb :TagbarToggle<CR>
+" quick insert semicolon at the end of the line
+nnoremap <leader>; A;<Esc>
+" for not to lose the yanked text after pasting over selection
+xnoremap p pgvy
+" nerdtree 
+nmap  <leader>nd :NERDTreeToggle<cr>
+let g:NERDTreeShowHidden=1
+
+" multi-cursor configuration
+let g:multi_cursor_exit_from_insert_mode = 0
+
+" use node to execute js code directly and output to shell directly
+nnoremap <leader>node :Node %<cr>
 
 " upper case Y to copy from cursor to line end
 nnoremap Y v$hy
@@ -354,3 +388,4 @@ function! s:RunShellCommand(cmdline)
     1
 endfunction
 command! -complete=file -nargs=* Node call s:RunShellCommand('node '.<q-args>)
+
