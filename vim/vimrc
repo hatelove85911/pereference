@@ -308,9 +308,16 @@ let g:syntastic_check_on_wq = 0
 " utltsnips
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ultisnips configuration
+" define where to store the custom snippets created by me
+let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
+" define the directory names where ultisnips will go and search for .snippets 
+let g:UltisnipsSnippetDirectories=["UltiSnips"]
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+let g:UltiSnipsEditSplit="vertical"
+nmap <leader>se :UltiSnipsEdit<CR>
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " YCM 
